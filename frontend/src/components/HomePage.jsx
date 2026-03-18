@@ -2,7 +2,8 @@ import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../styles/HomePage.module.css";
 
-const API = "http://localhost:8000";
+const API = import.meta.env.VITE_API_URL;
+const API_BASE = import.meta.env.VITE_API_URL;
 
 const FLOWERS = ["🌸", "🌻", "🌺", "🌼", "💐", "🌷", "🏵️", "🌹"];
 

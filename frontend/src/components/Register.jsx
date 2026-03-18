@@ -1,7 +1,8 @@
 import { useState } from "react";
 import styles from "../styles/Auth.module.css";
 
-const API_BASE = "http://localhost:8000";
+const API = import.meta.env.VITE_API_URL;
+const API_BASE = import.meta.env.VITE_API_URL;
 
 export default function Register() {
   const [form, setForm] = useState({

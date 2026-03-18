@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from "../styles/Auth.module.css";
 
+const API = import.meta.env.VITE_API_URL;
+const API_BASE = import.meta.env.VITE_API_URL;
+
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -28,7 +31,7 @@ function Login() {
     formDetails.append('password', password);
 
     try {
-      const response = await fetch('http://localhost:8000/token', {
+      const response = await fetch(`${API}/token`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: formDetails,
