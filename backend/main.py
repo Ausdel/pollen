@@ -226,7 +226,7 @@ def delete_poll(poll_id: int, current_user: User = Depends(get_current_user), db
 
 # Post a comment
 @app.post("/polls/{poll_id}/comments", status_code=201)
-def add_comment(poll_id: int, comment: CommentCreate = Body(...), current_user: User = Depends(get_current_user), db: Session = Depends(get_db)):
+def add_comment(poll_id: int, comment: CommentCreate, current_user: User = Depends(get_current_user), db: Session = Depends(get_db)):
     poll = db.query(Poll).filter(Poll.id == poll_id).first()
     if not poll:
         raise HTTPException(status_code=404, detail="Poll not found")
