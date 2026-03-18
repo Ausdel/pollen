@@ -1,0 +1,487 @@
+.homePage {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 4rem;
+}
+
+/* ── Header ──────────────────────────────────────────────────── */
+.homeHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--comb-dark);
+}
+
+.homeHeader h1 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--black);
+}
+
+.homeHeader h1::before {
+  content: '🐝 ';
+}
+
+.headerActions {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.newPollBtn {
+  background: var(--honey);
+  color: var(--black);
+  padding: 0.55rem 1.2rem;
+  font-size: 0.9rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.newPollBtn:hover {
+  background: var(--honey-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.logoutBtn {
+  background: var(--white);
+  color: var(--brown);
+  padding: 0.55rem 1.2rem;
+  font-size: 0.9rem;
+  border: 2px solid var(--comb-dark);
+}
+
+.logoutBtn:hover {
+  background: var(--comb);
+  border-color: var(--honey);
+}
+
+/* ── Create Poll ─────────────────────────────────────────────── */
+.createPoll {
+  background: var(--comb);
+  border: 2px solid var(--comb-dark);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  animation: slideDown 0.25s ease both;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.createPoll h2 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--black);
+  margin-bottom: 1rem;
+}
+
+.createPollForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.optionRow {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.optionRow input {
+  flex: 1;
+}
+
+.removeOptionBtn {
+  background: none;
+  border: 2px solid var(--comb-dark);
+  color: var(--text-muted);
+  border-radius: var(--radius-pill);
+  width: 32px;
+  height: 32px;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.removeOptionBtn:hover {
+  border-color: var(--error);
+  color: var(--error);
+  background: var(--error-bg);
+}
+
+.addOptionBtn {
+  background: none;
+  color: var(--amber);
+  border: 2px dashed var(--comb-dark);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  width: 100%;
+  margin-top: 0.25rem;
+}
+
+.addOptionBtn:hover {
+  border-color: var(--honey);
+  background: var(--white);
+}
+
+.submitBtn {
+  background: var(--honey);
+  color: var(--black);
+  padding: 0.75rem;
+  font-size: 0.95rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.submitBtn:hover:not(:disabled) {
+  background: var(--honey-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.submitBtn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.formError {
+  background: var(--error-bg);
+  border: 1.5px solid var(--error);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 0.85rem;
+  color: var(--error);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* ── Poll Feed ───────────────────────────────────────────────── */
+.pollFeed {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.feedEmpty {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 3rem 0;
+  font-size: 1rem;
+}
+
+.feedLoading {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 3rem 0;
+}
+
+/* ── Poll Card ───────────────────────────────────────────────── */
+.pollCard {
+  background: var(--white);
+  border: 2px solid var(--comb-dark);
+  border-radius: var(--radius);
+  padding: 1.4rem;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.pollCard:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.pollCardHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+}
+
+.pollCreator {
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--amber);
+}
+
+.pollTimestamp {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-left: auto;
+}
+
+.deleteBtn {
+  background: none;
+  border: 1.5px solid var(--comb-dark);
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+}
+
+.deleteBtn:hover {
+  border-color: var(--error);
+  color: var(--error);
+  background: var(--error-bg);
+}
+
+.pollQuestion {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+/* ── Vote Buttons ────────────────────────────────────────────── */
+.pollOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.voteBtn {
+  width: 100%;
+  text-align: left;
+  background: var(--comb);
+  color: var(--text);
+  border: 2px solid var(--comb-dark);
+  padding: 0.65rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  transition: all var(--transition);
+}
+
+.voteBtn:hover:not(:disabled) {
+  background: var(--honey-light);
+  border-color: var(--honey);
+  transform: translateX(3px);
+}
+
+.voteBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ── Flower Results ──────────────────────────────────────────── */
+.flowerGarden {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  gap: 8px;
+  height: 160px;
+  padding: 0 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.flowerCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+  height: 100%;
+  position: relative;
+}
+
+.flowerHead {
+  margin-bottom: 2px;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.flowerCol:hover .flowerHead {
+  transform: scale(1.2) rotate(-5deg);
+}
+
+.flowerStem {
+  width: 5px;
+  border-radius: 3px;
+  background: #5a8a4a;
+  transition: height 0.9s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.flowerPct {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--brown);
+  margin-top: 5px;
+}
+
+.flowerLabel {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+  text-align: center;
+  max-width: 72px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chosenLabel {
+  color: var(--amber);
+  font-weight: 700;
+}
+
+/* ── Poll Footer ─────────────────────────────────────────────── */
+.pollCardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1.5px solid var(--comb-dark);
+}
+
+.pollTotal {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.toggleCommentsBtn {
+  background: none;
+  border: 1.5px solid var(--comb-dark);
+  color: var(--brown);
+  font-size: 0.82rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-pill);
+}
+
+.toggleCommentsBtn:hover {
+  background: var(--comb);
+  border-color: var(--honey);
+}
+
+/* ── Comments ────────────────────────────────────────────────── */
+.commentsSection {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1.5px dashed var(--comb-dark);
+}
+
+.commentsSection h4 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--brown);
+  margin-bottom: 0.75rem;
+}
+
+.commentList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+}
+
+.noComments {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.comment {
+  background: var(--comb);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 0.85rem;
+}
+
+.commentAuthor {
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: var(--amber);
+  margin-right: 0.5rem;
+}
+
+.commentTimestamp {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.commentText {
+  margin-top: 0.2rem;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.commentForm {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.commentForm input {
+  flex: 1;
+}
+
+.commentPostBtn {
+  background: var(--honey);
+  color: var(--black);
+  padding: 0.55rem 1rem;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+  border-radius: var(--radius-pill);
+}
+
+.commentPostBtn:hover:not(:disabled) {
+  background: var(--honey-dark);
+}
+
+.commentPostBtn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* ── Pagination ──────────────────────────────────────────────── */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.pagination button {
+  background: var(--white);
+  color: var(--brown);
+  border: 2px solid var(--comb-dark);
+  padding: 0.45rem 0.9rem;
+  font-size: 0.875rem;
+  border-radius: var(--radius-pill);
+}
+
+.pagination button:hover:not(:disabled) {
+  background: var(--comb);
+  border-color: var(--honey);
+}
+
+.pagination button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pageBtn {
+  min-width: 38px;
+  text-align: center;
+}
+
+.pageBtnActive {
+  background: var(--honey) !important;
+  border-color: var(--honey) !important;
+  color: var(--black) !important;
+  font-weight: 700;
+}
