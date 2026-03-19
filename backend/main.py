@@ -66,7 +66,6 @@ class CommentCreate(BaseModel):
 def get_user_by_username(db: Session, username: str):
     return db.query(User).filter(User.username == username).first()
 
-# Update create_user to store email
 def create_user(db, user: UserCreate):
     hashed_password = pwd_context.hash(user.password)
     db_user = User(username=user.username, email=user.email, hashed_password=hashed_password)
@@ -74,7 +73,6 @@ def create_user(db, user: UserCreate):
     db.commit()
     return {"message": "Account created successfully"}
 
-# Keep only ONE register route
 @app.post("/register")
 def register(user: UserCreate, db: Session = Depends(get_db)):
     if get_user_by_username(db, username=user.username):
